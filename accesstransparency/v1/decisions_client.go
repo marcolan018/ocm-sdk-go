@@ -235,7 +235,7 @@ type DecisionsListRequest struct {
 	path      string
 	query     url.Values
 	header    http.Header
-	order     *string
+	orderBy   *string
 	page      *int
 	search    *string
 	size      *int
@@ -260,7 +260,7 @@ func (r *DecisionsListRequest) Impersonate(user string) *DecisionsListRequest {
 	return r
 }
 
-// Order sets the value of the 'order' parameter.
+// OrderBy sets the value of the 'order_by' parameter.
 //
 // Order criteria.
 //
@@ -275,8 +275,8 @@ func (r *DecisionsListRequest) Impersonate(user string) *DecisionsListRequest {
 //
 // If the parameter isn't provided, or if the value is empty, then the order of the
 // results is undefined.
-func (r *DecisionsListRequest) Order(value string) *DecisionsListRequest {
-	r.order = &value
+func (r *DecisionsListRequest) OrderBy(value string) *DecisionsListRequest {
+	r.orderBy = &value
 	return r
 }
 
@@ -327,8 +327,8 @@ func (r *DecisionsListRequest) Send() (result *DecisionsListResponse, err error)
 // SendContext sends this request, waits for the response, and returns it.
 func (r *DecisionsListRequest) SendContext(ctx context.Context) (result *DecisionsListResponse, err error) {
 	query := helpers.CopyQuery(r.query)
-	if r.order != nil {
-		helpers.AddValue(&query, "order", *r.order)
+	if r.orderBy != nil {
+		helpers.AddValue(&query, "orderBy", *r.orderBy)
 	}
 	if r.page != nil {
 		helpers.AddValue(&query, "page", *r.page)

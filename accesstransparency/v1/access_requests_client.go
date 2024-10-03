@@ -86,7 +86,7 @@ type AccessRequestsListRequest struct {
 	path      string
 	query     url.Values
 	header    http.Header
-	order     *string
+	orderBy   *string
 	page      *int
 	search    *string
 	size      *int
@@ -111,7 +111,7 @@ func (r *AccessRequestsListRequest) Impersonate(user string) *AccessRequestsList
 	return r
 }
 
-// Order sets the value of the 'order' parameter.
+// OrderBy sets the value of the 'order_by' parameter.
 //
 // Order criteria.
 //
@@ -126,8 +126,8 @@ func (r *AccessRequestsListRequest) Impersonate(user string) *AccessRequestsList
 //
 // If the parameter isn't provided, or if the value is empty, then the order of the
 // results is undefined.
-func (r *AccessRequestsListRequest) Order(value string) *AccessRequestsListRequest {
-	r.order = &value
+func (r *AccessRequestsListRequest) OrderBy(value string) *AccessRequestsListRequest {
+	r.orderBy = &value
 	return r
 }
 
@@ -178,8 +178,8 @@ func (r *AccessRequestsListRequest) Send() (result *AccessRequestsListResponse, 
 // SendContext sends this request, waits for the response, and returns it.
 func (r *AccessRequestsListRequest) SendContext(ctx context.Context) (result *AccessRequestsListResponse, err error) {
 	query := helpers.CopyQuery(r.query)
-	if r.order != nil {
-		helpers.AddValue(&query, "order", *r.order)
+	if r.orderBy != nil {
+		helpers.AddValue(&query, "orderBy", *r.orderBy)
 	}
 	if r.page != nil {
 		helpers.AddValue(&query, "page", *r.page)

@@ -108,7 +108,7 @@
         "description": "Retrieves the list of access requests.",
         "parameters": [
           {
-            "name": "order",
+            "name": "orderBy",
             "description": "Order criteria.\n\nThe syntax of this parameter is similar to the syntax of the _order by_ clause of\na SQL statement, but using the names of the attributes of the access request instead of\nthe names of the columns of a table. For example, in order to sort the access requests\ndescending by created_at the value should be:\n\n```sql\ncreated_at desc\n```\n\nIf the parameter isn't provided, or if the value is empty, then the order of the\nresults is undefined.",
             "in": "query",
             "schema": {
@@ -318,7 +318,7 @@
             "required": true
           },
           {
-            "name": "order",
+            "name": "orderBy",
             "description": "Order criteria.\n\nThe syntax of this parameter is similar to the syntax of the _order by_ clause of\na SQL statement, but using the names of the attributes of the decision instead of\nthe names of the columns of a table. For example, in order to sort the decisions\ndescending by created_at the value should be:\n\n```sql\ncreated_at desc\n```\n\nIf the parameter isn't provided, or if the value is empty, then the order of the\nresults is undefined.",
             "in": "query",
             "schema": {
